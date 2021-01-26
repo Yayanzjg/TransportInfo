@@ -1,5 +1,5 @@
 package transportInfo;
-import transportInfo.ConfigureLines;
+import  transportInfo.ConfigureLines;
 
 public class Line {
 	//Should be in Class TransportInfo?

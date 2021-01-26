@@ -1,4 +1,5 @@
-package linnfaa.java.basic.kravochdesign;
+package transportInfo;
+import transportInfo.TransportInfo;
 
 public class User {
 	private long id;
@@ -34,10 +35,11 @@ public class User {
 		return stopPoint;
 	}
 	
-	public void getUserRoute()
-	{
-		TransportInfo.getUserRoute(this.id, this.startPoint, this.stopPoint);
-	}
+//	public void getUserRoute()
+//	{
+//		TransportInfo.getUserRoute(this.id, this.startPoint, this.stopPoint);
+//		// Should send user instead of data?
+//	}
 	
 //	public String toString()
 //	{
@@ -49,6 +51,11 @@ public class User {
 		Line[] availableTransportLines = ConfigureLines.populateLines();
 		
 		TransportInfo theTransportInfo = new TransportInfo(availableTransportLines);
+		
+		User user = new User(1,"Korsvägen","Brunnsparken");
+		
+		Line[][] ny = new Line();
+		ny = TransportInfo.getUserRoute(user);
 	}
 	
 }
