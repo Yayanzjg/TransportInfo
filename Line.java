@@ -10,7 +10,7 @@ public class Line {
 	private TransportType type;
 	private String endstop1;
 	private String endstop2;
-	private Stop[] allStops;
+	private static Stop[] allStops;
 	
 	// Constructor
 	public Line(int lineid, TransportType type, String[] stops) {
@@ -49,8 +49,8 @@ public class Line {
 	public void setAllStops(Stop[] allStops) {
 		this.allStops = allStops;
 	}
-	
-	public boolean ifStationIncluded(Stop somestop) {
+
+	public static Boolean ifStationIncluded(Stop somestop) {
 		for(int i=0;i<allStops.length;i++) {
 			if(somestop.getStopName()==allStops[i].getStopName()) {
 				return true;

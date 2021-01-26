@@ -54,8 +54,7 @@ public class User {
 		
 		User user = new User(1,"Korsvägen","Brunnsparken");
 		
-		Line[][] ny = new Line();
-		ny = TransportInfo.getUserRoute(user);
+		TransportInfo.getUserRoute(user);
 	}
 	
 }
