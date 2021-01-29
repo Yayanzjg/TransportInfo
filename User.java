@@ -1,5 +1,6 @@
 package yang.java.basic;
 
+
 public class User {
 	private long id;
 	String startPoint;
@@ -34,7 +35,9 @@ public class User {
 		return stopPoint;
 	}
 	
+
 	public void showPlan() {
 		System.out.println(String.format("User %d plans to travel from %s to %s.", id, startPoint, stopPoint));
 	}
+
 }

@@ -1,5 +1,6 @@
 package yang.java.basic;
 
+
 class Line {
 	public enum TransportType {TRAM, FERRY};
 		
