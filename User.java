@@ -1,9 +1,9 @@
-package linnfaa.java.basic.kravochdesign;
+package yang.java.basic;
 
 public class User {
 	private long id;
-	private String startPoint;
-	private String stopPoint;
+	String startPoint;
+	String stopPoint;
 	
 	// constructor
 	public User(long id, String startPoint, String stopPoint)
@@ -34,21 +34,7 @@ public class User {
 		return stopPoint;
 	}
 	
-	public void getUserRoute()
-	{
-		TransportInfo.getUserRoute(this.id, this.startPoint, this.stopPoint);
+	public void showPlan() {
+		System.out.println(String.format("User %d plans to travel from %s to %s.", id, startPoint, stopPoint));
 	}
-	
-//	public String toString()
-//	{
-//		
-//	}
-	
-	public static void main(String[] args) {
-		
-		Line[] availableTransportLines = ConfigureLines.populateLines();
-		
-		TransportInfo theTransportInfo = new TransportInfo(availableTransportLines);
-	}
-	
 }
