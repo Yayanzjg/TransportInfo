@@ -1,11 +1,11 @@
-package transportInfo;
+package TransportInfo;
 import java.sql.Time;
 
 //import javax.sound.sampled.Line;
 
-import transportInfo.Line;
-import transportInfo.Line.TransportType;
-import transportInfo.Stop.StopType;
+//import yang.java.basic.Line;
+import TransportInfo.Line.TransportType;
+import TransportInfo.Stop.StopType;
 
 /**
  * A helper class configuring some of the TransportInfo system This class is
@@ -98,90 +98,90 @@ public class ConfigureLines {
 	 *         for one vehicle in traffic starting at first Time, ending at last
 	 *         Time Index 2 - Defines a Time (hour, min) at a specific Stop
 	 */
-	public static Time[][][] setUpTimeTable(Line oneLine) {
-
-		int lineNo = oneLine.getLineNo();
-
-		Time[][][] timeTable = null;
-
-		switch (lineNo) {
-
-		case 3:
-			timeTable = new Time[][][] {
-					// normal route
-					{
-							// scheduled departure from every stop along the line first vehicle
-							{ new Time(9, 25), new Time(9, 31), new Time(9, 39), new Time(9, 41), new Time(9, 51),
-									new Time(9, 53), new Time(10, 0), new Time(10, 10) },
-							// scheduled departure from every stop along the line second vehicle
-							{ new Time(10, 25), new Time(10, 31), new Time(10, 39), new Time(10, 41), new Time(10, 51),
-									new Time(10, 53), new Time(11, 0), new Time(11, 10) } },
-					// reverse route
-					{
-							// scheduled departure from every stop along the line first vehicle
-							{ new Time(9, 14), new Time(9, 22), new Time(9, 30), new Time(9, 32), new Time(9, 43),
-									new Time(9, 45), new Time(9, 53), new Time(9, 59) },
-							// scheduled departure from every stop along the line second vehicle
-							{ new Time(10, 14), new Time(10, 22), new Time(10, 30), new Time(10, 32), new Time(10, 43),
-									new Time(10, 45), new Time(10, 53), new Time(10, 59) } } };
-
-			break;
-
-		case 5:
-			timeTable = new Time[][][] {
-					{ { new Time(9, 35), new Time(9, 41), new Time(9, 51), new Time(9, 53), new Time(9, 57),
-							new Time(10, 0), new Time(10, 2), new Time(10, 16) },
-							{ new Time(10, 35), new Time(10, 41), new Time(10, 51), new Time(10, 53), new Time(10, 57),
-									new Time(11, 0), new Time(11, 2), new Time(11, 16) } },
-					{ { new Time(9, 30), new Time(9, 46), new Time(9, 48), new Time(9, 51), new Time(9, 55),
-							new Time(9, 57), new Time(10, 6), new Time(10, 15) },
-							{ new Time(10, 30), new Time(10, 46), new Time(10, 48), new Time(10, 51), new Time(10, 55),
-									new Time(10, 57), new Time(11, 6), new Time(11, 15) } } };
-			break;
-
-		case 9:
-			timeTable = new Time[][][] {
-					{ { new Time(9, 35), new Time(9, 41), new Time(9, 51), new Time(9, 53), new Time(9, 57),
-							new Time(10, 0), new Time(10, 2), new Time(10, 16) },
-							{ new Time(10, 35), new Time(10, 41), new Time(10, 51), new Time(10, 53), new Time(10, 57),
-									new Time(11, 0), new Time(11, 2), new Time(11, 16) } },
-					{ { new Time(9, 30), new Time(9, 46), new Time(9, 48), new Time(9, 51), new Time(9, 55),
-							new Time(9, 57), new Time(10, 6), new Time(10, 15) },
-							{ new Time(10, 30), new Time(10, 46), new Time(10, 48), new Time(10, 51), new Time(10, 55),
-									new Time(10, 57), new Time(11, 6), new Time(11, 15) } } };
-			break;
-
-		case 11:
-			timeTable = new Time[][][] {
-					{ { new Time(8, 42), new Time(8, 55), new Time(9, 0), new Time(9, 5), new Time(9, 7),
-							new Time(9, 15), new Time(9, 17), new Time(9, 25), new Time(9, 29), new Time(9, 39) },
-							{ new Time(9, 42), new Time(9, 55), new Time(10, 0), new Time(10, 5), new Time(10, 7),
-									new Time(10, 15), new Time(10, 17), new Time(10, 25), new Time(10, 29),
-									new Time(10, 39) } },
-					{ { new Time(9, 15), new Time(9, 25), new Time(9, 29), new Time(9, 38), new Time(9, 40),
-							new Time(9, 49), new Time(9, 51), new Time(9, 59), new Time(10, 01), new Time(10, 14) },
-							{ new Time(10, 15), new Time(10, 25), new Time(10, 29), new Time(10, 38), new Time(10, 40),
-									new Time(10, 49), new Time(10, 51), new Time(10, 59), new Time(11, 01),
-									new Time(11, 14) } } };
-			break;
-
-		case 285:
-			timeTable = new Time[][][] {
-					{ { new Time(9, 0), new Time(9, 6), new Time(9, 12), new Time(9, 17), new Time(9, 22),
-							new Time(9, 27) },
-							{ new Time(10, 0), new Time(10, 6), new Time(10, 12), new Time(10, 17), new Time(10, 22),
-									new Time(10, 27) } },
-					{ { new Time(8, 50), new Time(8, 55), new Time(9, 0), new Time(9, 6), new Time(9, 12),
-							new Time(9, 17) },
-
-							{ new Time(10, 0), new Time(10, 5), new Time(10, 10), new Time(10, 16), new Time(10, 22),
-									new Time(10, 27) } } };
-			break;
-
-		default:
-			System.out.format("Line no %d not yet supported!", lineNo);
-		}
-
-		return timeTable;
-	}
+//	public static Time[][][] setUpTimeTable(Line oneLine) {
+//
+//		int lineNo = oneLine.getLineNo();
+//
+//		Time[][][] timeTable = null;
+//
+//		switch (lineNo) {
+//
+//		case 3:
+//			timeTable = new Time[][][] {
+//					// normal route
+//					{
+//							// scheduled departure from every stop along the line first vehicle
+//							{ new Time(9, 25), new Time(9, 31), new Time(9, 39), new Time(9, 41), new Time(9, 51),
+//									new Time(9, 53), new Time(10, 0), new Time(10, 10) },
+//							// scheduled departure from every stop along the line second vehicle
+//							{ new Time(10, 25), new Time(10, 31), new Time(10, 39), new Time(10, 41), new Time(10, 51),
+//									new Time(10, 53), new Time(11, 0), new Time(11, 10) } },
+//					// reverse route
+//					{
+//							// scheduled departure from every stop along the line first vehicle
+//							{ new Time(9, 14), new Time(9, 22), new Time(9, 30), new Time(9, 32), new Time(9, 43),
+//									new Time(9, 45), new Time(9, 53), new Time(9, 59) },
+//							// scheduled departure from every stop along the line second vehicle
+//							{ new Time(10, 14), new Time(10, 22), new Time(10, 30), new Time(10, 32), new Time(10, 43),
+//									new Time(10, 45), new Time(10, 53), new Time(10, 59) } } };
+//
+//			break;
+//
+//		case 5:
+//			timeTable = new Time[][][] {
+//					{ { new Time(9, 35), new Time(9, 41), new Time(9, 51), new Time(9, 53), new Time(9, 57),
+//							new Time(10, 0), new Time(10, 2), new Time(10, 16) },
+//							{ new Time(10, 35), new Time(10, 41), new Time(10, 51), new Time(10, 53), new Time(10, 57),
+//									new Time(11, 0), new Time(11, 2), new Time(11, 16) } },
+//					{ { new Time(9, 30), new Time(9, 46), new Time(9, 48), new Time(9, 51), new Time(9, 55),
+//							new Time(9, 57), new Time(10, 6), new Time(10, 15) },
+//							{ new Time(10, 30), new Time(10, 46), new Time(10, 48), new Time(10, 51), new Time(10, 55),
+//									new Time(10, 57), new Time(11, 6), new Time(11, 15) } } };
+//			break;
+//
+//		case 9:
+//			timeTable = new Time[][][] {
+//					{ { new Time(9, 35), new Time(9, 41), new Time(9, 51), new Time(9, 53), new Time(9, 57),
+//							new Time(10, 0), new Time(10, 2), new Time(10, 16) },
+//							{ new Time(10, 35), new Time(10, 41), new Time(10, 51), new Time(10, 53), new Time(10, 57),
+//									new Time(11, 0), new Time(11, 2), new Time(11, 16) } },
+//					{ { new Time(9, 30), new Time(9, 46), new Time(9, 48), new Time(9, 51), new Time(9, 55),
+//							new Time(9, 57), new Time(10, 6), new Time(10, 15) },
+//							{ new Time(10, 30), new Time(10, 46), new Time(10, 48), new Time(10, 51), new Time(10, 55),
+//									new Time(10, 57), new Time(11, 6), new Time(11, 15) } } };
+//			break;
+//
+//		case 11:
+//			timeTable = new Time[][][] {
+//					{ { new Time(8, 42), new Time(8, 55), new Time(9, 0), new Time(9, 5), new Time(9, 7),
+//							new Time(9, 15), new Time(9, 17), new Time(9, 25), new Time(9, 29), new Time(9, 39) },
+//							{ new Time(9, 42), new Time(9, 55), new Time(10, 0), new Time(10, 5), new Time(10, 7),
+//									new Time(10, 15), new Time(10, 17), new Time(10, 25), new Time(10, 29),
+//									new Time(10, 39) } },
+//					{ { new Time(9, 15), new Time(9, 25), new Time(9, 29), new Time(9, 38), new Time(9, 40),
+//							new Time(9, 49), new Time(9, 51), new Time(9, 59), new Time(10, 01), new Time(10, 14) },
+//							{ new Time(10, 15), new Time(10, 25), new Time(10, 29), new Time(10, 38), new Time(10, 40),
+//									new Time(10, 49), new Time(10, 51), new Time(10, 59), new Time(11, 01),
+//									new Time(11, 14) } } };
+//			break;
+//
+//		case 285:
+//			timeTable = new Time[][][] {
+//					{ { new Time(9, 0), new Time(9, 6), new Time(9, 12), new Time(9, 17), new Time(9, 22),
+//							new Time(9, 27) },
+//							{ new Time(10, 0), new Time(10, 6), new Time(10, 12), new Time(10, 17), new Time(10, 22),
+//									new Time(10, 27) } },
+//					{ { new Time(8, 50), new Time(8, 55), new Time(9, 0), new Time(9, 6), new Time(9, 12),
+//							new Time(9, 17) },
+//
+//							{ new Time(10, 0), new Time(10, 5), new Time(10, 10), new Time(10, 16), new Time(10, 22),
+//									new Time(10, 27) } } };
+//			break;
+//
+//		default:
+//			System.out.format("Line no %d not yet supported!", lineNo);
+//		}
+//
+//		return timeTable;
+//	}
 }
