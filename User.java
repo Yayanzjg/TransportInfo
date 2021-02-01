@@ -1,10 +1,10 @@
-package transportInfo;
-import transportInfo.TransportInfo;
+package TransportInfo;
+
 
 public class User {
 	private long id;
-	private String startPoint;
-	private String stopPoint;
+	String startPoint;
+	String stopPoint;
 	
 	// constructor
 	public User(long id, String startPoint, String stopPoint)
@@ -35,26 +35,9 @@ public class User {
 		return stopPoint;
 	}
 	
-//	public void getUserRoute()
-//	{
-//		TransportInfo.getUserRoute(this.id, this.startPoint, this.stopPoint);
-//		// Should send user instead of data?
-//	}
-	
-//	public String toString()
-//	{
-//		
-//	}
-	
-	public static void main(String[] args) {
-		
-		Line[] availableTransportLines = ConfigureLines.populateLines();
-		
-		TransportInfo theTransportInfo = new TransportInfo(availableTransportLines);
-		
-		User user = new User(1,"Korsvägen","Brunnsparken");
-		
-		TransportInfo.getUserRoute(user);
+
+	public void showPlan() {
+		System.out.println(String.format("User %d plans to travel from %s to %s.", id, startPoint, stopPoint));
 	}
-	
+
 }

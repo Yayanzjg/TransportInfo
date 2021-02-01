@@ -1,77 +1,45 @@
+package TransportInfo;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-/**
- * @author blomg
- */
-package transportInfo;
-import transportInfo.ConfigureLines;
-import transportInfo.Line;
-import transportInfo.User;
+public class Transportinfo {
+	public static Stop[] calculateRoute(String startPoint,String stopPoint) {
+		Stop[] route = {};
+		Line[] allLines = ConfigureLines.populateLines();
+		// to find out which line includes startpoint and stoppoint
+		for(int i=0;i<allLines.length;i++) {
+			//i=0 allLines[0] Line 3
+			Line currentLine = allLines[i];
+			Boolean startIncluded = currentLine.ifStopInLine(currentLine,startPoint);
+			Boolean stopIncluded = currentLine.ifStopInLine(currentLine,stopPoint);
 
-public class TransportInfo {
-
-	public static int MAX_NUMBER_ROUTES = 5;
-	
-	private Line[] transportRoutes;
-	private String userRoute[][];
-
-	public TransportInfo(Line[] startStop) {
-		startStop = transportRoutes;
-	}
-
-	public String[] calculateRoute(int id, String startPoint, String stopPoint) {
-	
-		Stop startStop = new Stop(startPoint,Stop.StopType.ORDINARY);
-		Stop endStop = new Stop(stopPoint,Stop.StopType.ORDINARY);
-		
-		Boolean startIncluded = false;
-		Boolean endIncluded = false;
-		int k = 0;
-		int j = 0;
-		int LineStart[] = new int[MAX_NUMBER_ROUTES];
-		int LineEnd[] = new int[MAX_NUMBER_ROUTES];
-		
-		for(int i=0;i<transportRoutes.length;i++) {	
-			
-		startIncluded = transportRoutes[i].ifStationIncluded(startStop);
-		// ask kjell for static warning
-		
-			if(startIncluded) {
-				LineStart[k++] = i;
+			if(startIncluded==true && stopIncluded==true) {
+				System.out.println("You can take Line "+currentLine.getLineNo());
+				int startIndex = currentLine.stopIndex(currentLine, startPoint);
+				int stopIndex = currentLine.stopIndex(currentLine, stopPoint);
+				if(startIndex<stopIndex) {
+					route = Arrays.copyOfRange(currentLine.getAllStops(),startIndex,stopIndex+1);
+				}
+				else {
+					List <Stop> list = Arrays.asList(currentLine.getAllStops());
+					Collections.reverse(list); 
+					Stop[] temp = list.toArray(new Stop[list.size()]);
+					route = Arrays.copyOfRange(temp,stopIndex,startIndex+1);
+				}
 			}
-		}
-		k = 0;
-		/*** CHECKING FOR SINGLE BUSS? ***/
-		for(int i=0;i<LineStart.length;i++) {
-			endIncluded = transportRoutes[LineStart[k++]].ifStationIncluded(endStop);
-			
-			if(endIncluded) {
-				LineEnd[j++] = i;
+			else {
+				// TODO: if not a direct trip.
 			}
+		}	
+		return route;
+	}
+
+	public static void printRoute(Stop[] stoparray) {
+		System.out.println("The stops you will pass are:");
+		for(int i=0;i<stoparray.length-1;i++) {
+			System.out.print(stoparray[i].toString()+"-> ");
 		}
-		
-		for(int i=0;i<transportRoutes.length;i++) {
-			
-		}
-		
-//	Check for startPoint and stopPoint inside each line by calling object "Line"
-//  Calculate if transfer needed ( are the stops on same line? Yes/No )		
-		
+		System.out.print(stoparray[stoparray.length-1].toString()+'\n');
 	}
-
-	public static void getUserRoute(User user) {
-		String UserLine[] = calculateRoute(user.getId(),user.getStartPoint(),user.getStopPoint());
-		
-		
-		// Print the calculated route here? or in main? or toString?
-		
-//		return UserLine;
-	}
-
-	public Line[] getTransportRoutes() {
-		return transportRoutes;
-	}
-
-//	public String toString() {
-//	
-//	}
 }
