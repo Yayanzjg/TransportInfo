@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>513</y>
+      <w>225</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Class: Stop 
+--
+- stopName: String
+- type: StopType
+--
++Stop(String,int,String,String)
++getStopName(): String
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>513</y>
+      <w>270</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>Class: Line
+--
+- lineID: int
+- type: TransportType
+- endstop1: String
+- endstop2: String
+- allStops: Stop[]
+--
++Line(int,String[ ], String)
++getLineNo(): String
++getType():TransportType
++getendstop1(): String
++getendstop2(): String
++toString(): String
++ifStationInclude() : Boolean
++setAllStops:Stop[]
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>630</y>
+      <w>117</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=2...n</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>513</x>
+      <y>0</y>
+      <w>189</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>Class: User
+--
+-id: long
+-startPoint :String
+-stopPoint :String
+--
++User(long,String,String)
++getId():long
++getStartPoint():String
++getStopPoint():String
++showPlan()
++toString(): String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>738</x>
+      <y>81</y>
+      <w>90</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>BobTheUser</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>27</x>
+      <y>252</y>
+      <w>378</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Class: Transportinfo
+--
+- allLines: Line[]
+- destinationStop: Stop
+--
+Transportinfo(ConfigureLines.populateLines()):Line[]
+calculateRoute(String, String):Stop[]
+printRoute(Stop[])
+setRoute()
+--
+Respoinsibilites:
+calculate the route beased on user inputs.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>432</y>
+      <w>54</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1...n</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>72</y>
+      <w>90</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;80.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>54</x>
+      <y>972</y>
+      <w>225</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Class: Schedule 
+--
+-id:Long
+-arrivals: String[]
+-departures: String[]
+--
++Schedule(Long,String,String)
++getArrivals:String[]
++getDepartures:String[]
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>909</y>
+      <w>54</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1...n
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>387</x>
+      <y>108</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>9</y>
+      <w>378</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Application Trigger&gt;&gt;
+Class: TransportApp
+--
+- info: Transportinfo
+--
++ main()
+- tripPlanPresentation() (?)
+--
+Responsibilities:
+Create user cases
+Show results</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>171</y>
+      <w>27</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

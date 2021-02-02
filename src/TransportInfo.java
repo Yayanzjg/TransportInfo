@@ -4,13 +4,25 @@ import java.util.Collections;
 import java.util.List;
 
 public class Transportinfo {
-	public static Stop[] calculateRoute(String startPoint,String stopPoint) {
-		Stop[] route = {};
-		Line[] allLines = ConfigureLines.populateLines();
+	// TODO Remove static
+	// TODO Create constructor
+	// Include Line[] allLines = ConfigureLines.populateLines();
+	
+	Line[] allLines;
+	Stop[] route;
+	
+	public Transportinfo() {	
+		this.allLines = ConfigureLines.populateLines();
+//		this.route = new stop[]; 
+	}
+	
+	public Stop[] calculateRoute(String startPoint,String stopPoint) {
 		// to find out which line includes startpoint and stoppoint
+		
+		Line currentLine;
 		for(int i=0;i<allLines.length;i++) {
 			//i=0 allLines[0] Line 3
-			Line currentLine = allLines[i];
+			currentLine = allLines[i];
 			Boolean startIncluded = currentLine.ifStopInLine(currentLine,startPoint);
 			Boolean stopIncluded = currentLine.ifStopInLine(currentLine,stopPoint);
 
